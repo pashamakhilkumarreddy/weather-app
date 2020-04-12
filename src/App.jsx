@@ -13,17 +13,17 @@ class App extends Component {
     this.state = {
       isLoading: true,
       cityName: 'London',
-      observationTime: '',
       temperature: '',
       weatherDescriptions: [],
       weatherIcons: '',
       name: '',
-      region: '',
+      country: '',
       localTime: null,
+      current: null
     }
   }
 
-  async componentDidMount () {
+  updateWeather = async () => {
     try {
       const URL = `http://api.weatherstack.com/current?access_key=${WEATHER_APP_KEY}&query=${this.state.cityName}`;
       const data = await axios.get(URL);
@@ -42,18 +42,29 @@ class App extends Component {
           } = current;
           const {
             name,
+            country,
             region,
-            localtime
+            localtime,
+            lat, 
+            lon
           } = location;
           this.setState({
             isLoading: false,
             cityName: name,
-            observationTime: time,
+            country,
             temperature,
             weatherDescriptions: weather_descriptions,
             weatherIcons: weather_icons[0],
-            region,
-            localTime: localtime
+            localTime: localtime,
+            current: {
+              ...current,
+              weather_icons,
+              lat, 
+              lon,
+              region,
+              time,
+              weatherDescriptions: weather_descriptions
+            }
           });
         }
       }
@@ -62,19 +73,31 @@ class App extends Component {
     }
   }
 
+  componentDidMount () {
+    const { eventEmitter } = this.props;
+    this.updateWeather();
+
+    eventEmitter.on('updateWeather', data => {
+      this.setState({
+        cityName: data
+      }, () => this.updateWeather());
+    })
+  }
+
   render() {
     const weatherData = {...this.state};
     delete weatherData.isLoading;
+    delete weatherData.current;
     return (
       <div className={`app-container`}>
         <div className={`main-container`}>
           <div className={`top-section`}>
             {
-              this.state.isLoading ? <h3>Loading...</h3> : <TopSection weatherData={weatherData} />
+              this.state.isLoading ? <h3>Loading...</h3> : <TopSection weatherData={weatherData} eventEmitter={this.props.eventEmitter} />
             }
           </div>
           <div className={`bottom-section`}>
-            <BottomSection />
+            <BottomSection current={this.state.current} />
           </div>
         </div>
       </div>

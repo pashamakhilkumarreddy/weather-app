@@ -49,10 +49,47 @@ body {
 }
 .button {
   border: 1px solid #ddd;
+  border-color: transparent;
   margin: 1rem 0;
-  padding: 0.5rem 0.4rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.25rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  color: #fff;
+  font-weight: 500;
 }
 .button:focus {
   outline: none;
+}
+.popup-container {
+  position: absolute;
+  will-change: transform;
+  top: -52px;
+  left: -29px;
+  transform: translate3d(487px, 177px, 0);
+  width: 45vw;
+  height: 17vh;
+  display: flex;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 0 5px 2px rgba(15, 15, 15, 0.2);
+  font-size: 1rem;
+}
+.popup-container .form-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+.popup-container .form-container label {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1rem;
+}
+.popup-container .form-container input {
+  font-size: 1rem;
+  padding: 0.5rem 0.3rem;
+  border-radius: 2px;
+  border: 1px solid rgba(15, 15, 15, 0.2);
 }

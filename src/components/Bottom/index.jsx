@@ -2,6 +2,7 @@ import React, {
   Component,
   Fragment
 } from 'react';
+import CurrentWeather from './CurrentWeather';
 import './index.scss';
 
 export default class BottomSection extends Component {
@@ -13,6 +14,9 @@ export default class BottomSection extends Component {
     return ( 
       <Fragment>
         <div className={`bottom-container`}>
+          <div className="inner-container">
+            <CurrentWeather current={this.props.current }/>
+          </div>
         </div>
       </Fragment>
     )

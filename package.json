@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "@popperjs/core": "^2.2.3",
     "node-sass": "^4.13.1",
     "react-scripts": "^3.4.1"
   }

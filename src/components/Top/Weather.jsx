@@ -9,12 +9,10 @@ export default class Weather extends Component {
     super(props);
   }
   render() {
-    console.log(this.props);
     const {
       cityName,
       localTime,
-      observationTime,
-      region,
+      country,
       temperature,
       weatherDescriptions,
       weatherIcons
@@ -22,15 +20,14 @@ export default class Weather extends Component {
     return (
       <Fragment>
         <div className={`weather-container`}>
-          <div className="header">{cityName}, {region}</div>
-          <time datetime={observationTime}>Observation Time: {observationTime}</time>
-          <time datetime={localTime}>Local Time: {localTime}</time>
+          <div className="header">{cityName}, {country}</div>
+          <time dateTime={localTime}>{localTime}</time>
           <div className={`inner-container`}>
             <div className="image">
               <img src={weatherIcons ? weatherIcons : SunnyImage} alt="Weather Image" />
             </div>
             <div className="current-weather">
-              {temperature}&deg;
+              Temp: {temperature}&deg;
             </div>
           </div>
           <div className="footer"></div>

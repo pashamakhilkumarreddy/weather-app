@@ -9,7 +9,8 @@
 }
 .top-container .title {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: 500;
   margin-top: 0.5rem;
 }
 .weather-container {
@@ -46,8 +47,8 @@
   font-size: 2rem;
 }
 .weather-container .inner-container .image {
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
+  height: 4rem;
 }
 .weather-container .inner-container .image img {
   width: 100%;
@@ -60,8 +61,8 @@
   font-size: 0.9rem;
 }
 .is-primary {
-  background-color: #49dcc2;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  color: #222;
+  background-color: #00d1b2;
+}
+.is-secondary {
+  background-color: #3273dc;
 }
