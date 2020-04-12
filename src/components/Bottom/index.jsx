@@ -13,9 +13,6 @@ export default class BottomSection extends Component {
     return ( 
       <Fragment>
         <div className={`bottom-container`}>
-          <div className={`title`}>
-            Weather App
-          </div>
         </div>
       </Fragment>
     )

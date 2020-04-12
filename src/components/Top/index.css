@@ -9,5 +9,59 @@
 }
 .top-container .title {
   color: #fff;
-  font-size: 22px;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+.weather-container {
+  margin-top: 1.2rem;
+  color: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.weather-container > * {
+  padding: 0.3rem 0;
+}
+.weather-container .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 0 0 1rem;
+}
+.weather-container .inner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  margin: 0.6rem 0;
+}
+.weather-container .inner-container > div {
+  margin: 0 0.5rem;
+}
+.weather-container .inner-container .current-weather {
+  height: fit-content;
+  font-size: 2rem;
+}
+.weather-container .inner-container .image {
+  width: 5rem;
+  height: 5rem;
+}
+.weather-container .inner-container .image img {
+  width: 100%;
+  height: auto;
+}
+.weather-container .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.is-primary {
+  background-color: #49dcc2;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  color: #222;
 }

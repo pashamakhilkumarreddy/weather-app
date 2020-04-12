@@ -16,7 +16,8 @@ export default class TopSection extends Component {
           <div className={`title`}>
             Weather App
           </div>
-          <Weather />
+          <Weather weatherData={this.props.weatherData} />
+          <button className={`button is-primary`}>Select Location</button>
         </div>
       </Fragment>
     )
